@@ -9,7 +9,16 @@ export const create = async (gameData) => {
         body: JSON.stringify(gameData)
     });
 
-    const result = await response.jason();
+    const result = await response.json();
 
     return result;
+}
+
+export const getAll = async () => {
+    const responce = await fetch(`${baseURL}/games`, {
+        method: 'GET'
+    });
+
+    const result = await responce.json();
+    return Object.values(result);
 }
